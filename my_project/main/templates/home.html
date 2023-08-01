@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,20 +33,20 @@
   <![endif]-->
 </head>
 <body>
-  <div class="card text-center">
-    {% for each in Movies %}
+   <div class="card text-center">
+    {% for movie in movies_list %}
     <div class="card-header">
       Movies
     </div>
     <div class="card-body">
-      <img src="{{ each.movie_cover.url }}" alt="{{ each.title }}">
-      <p class="card-text">{{ each.title }}</p>
-      <p class="card-text">{{ each.description }}</p>
-      <p class="card-text">{{ each.year }}</p>
+      <img src="{% static 'images/' %}{{ movie.movie_cover }}" alt="{{ movie.title }}">
+      <p class="card-text">{{ movie.title }}</p>
+      <p class="card-text">{{ movie.description }}</p>
+      <p class="card-text">{{ movie.year }}</p>
       <a href="#" class="btn btn-primary">Watched</a>
     </div>
     <div class="card-footer text-muted">
-      <p class="card-text">{{ each.date }}</p>
+      <p class="card-text">{{ movie.date }}</p>
       <!-- Star Rating -->
       <div class="star-rating">
         <i class="fas fa-star"></i>
